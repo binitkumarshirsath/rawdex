@@ -20,18 +20,21 @@ interface GameResponse {
   results: Game[];
 }
 
-const useGame = () => {
+const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [errors, setErrors] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     apiClient
       .get<GameResponse>("/games")
       .then((res) => setGames(res.data.results))
-      .catch((err) => setErrors(err.message));
+      .catch((err) => setErrors(err.message))
+      .finally(() => setLoading(false));
   }, []);
 
-  return { games, errors };
+  return { games, errors, loading };
 };
 
-export default useGame;
+export default useGames;

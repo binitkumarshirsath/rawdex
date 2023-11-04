@@ -1,12 +1,16 @@
-import useGame from "../../hooks/useGame";
+import useGames from "../../hooks/useGames";
 import GameCard from "../GameGrid/GameCard";
+import GameCardSkeleton from "../GameGrid/GameCardSkeleton";
 
 const GameGrid = () => {
-  const { games, errors } = useGame();
+  const skeletonCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const { games, errors, loading } = useGames();
   return (
     <>
       {errors && <p>{errors}</p>}
       <div className="grid   grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
+        {loading && skeletonCard.map((id) => <GameCardSkeleton key={id} />)}
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}

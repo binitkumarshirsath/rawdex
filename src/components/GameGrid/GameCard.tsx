@@ -1,4 +1,4 @@
-import { Game } from "../../hooks/useGame";
+import { Game } from "../../hooks/useGames";
 import CriticScoreBadge from "./CriticScoreBadge";
 import PlatformIconList from "./PlatformIconList";
 
