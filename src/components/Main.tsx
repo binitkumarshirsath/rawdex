@@ -1,5 +1,7 @@
+import GameGrid from "./Home/GameGrid";
+
 const Main = () => {
-  return <div>Main</div>;
+  return <GameGrid />;
 };
 
 export default Main;
