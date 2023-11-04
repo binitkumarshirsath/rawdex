@@ -1,4 +1,5 @@
 import { Game } from "../../hooks/useGame";
+import PlatformIconList from "./PlatformIconList";
 
 interface Props {
   game: Game;
@@ -11,15 +12,13 @@ const GameCard = ({ game }: Props) => {
         <img className="rounded-t-lg" src={game.background_image} alt="" />
       </div>
       <div className="p-5">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {game.name}
-          </h5>
-        </a>
-        {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so
-          far, in reverse chronological order.
-        </p> */}
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          {game.name}
+        </h5>
+
+        <PlatformIconList
+          platforms={game.parent_platforms.map((p) => p.platform)}
+        />
       </div>
     </div>
   );
