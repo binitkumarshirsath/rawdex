@@ -1,4 +1,4 @@
-import GameGrid from "./Home/GameGrid";
+import GameGrid from "./GameGrid";
 
 const Main = () => {
   return <GameGrid />;
