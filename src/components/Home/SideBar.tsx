@@ -1,8 +1,16 @@
 import useGenres from "../../hooks/useGenres";
+import Spinner from "../Sidebar/Spinner";
 
 const SideBar = () => {
-  const { data } = useGenres();
+  const { data, loading, error } = useGenres();
 
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return null;
+  }
   return (
     <aside
       id="default-sidebar"
