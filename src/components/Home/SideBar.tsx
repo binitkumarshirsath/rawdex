@@ -1,11 +1,11 @@
 import useGenres from "../../hooks/useGenres";
 
 const SideBar = () => {
-  const { genres } = useGenres();
+  const { data } = useGenres();
 
   return (
     <div className="min-w-[200px]">
-      {genres.map((genre) => (
+      {data.map((genre) => (
         <p key={genre.id}>{genre.name}</p>
       ))}
     </div>
