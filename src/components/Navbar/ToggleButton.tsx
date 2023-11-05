@@ -28,13 +28,13 @@ const ToggleButton = () => {
   };
 
   return (
-    <button onClick={handleToggle}>
+    <div onClick={handleToggle} className="w-full ">
       {darkMode ? (
         <BsFillSunFill color={"yellow"} size={25} />
       ) : (
         <BsFillMoonStarsFill size={25} />
       )}
-    </button>
+    </div>
   );
 };
 
