@@ -16,7 +16,10 @@ const Home = () => {
           <Navbar />
         </div>
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
-          <SideBar handleClick={handleSelectingGenre} />
+          <SideBar
+            selectedGenre={selectedGenre}
+            handleClick={handleSelectingGenre}
+          />
         </div>
         <div className=" md:col-span-7  col-span-8">
           <Main selectedGenre={selectedGenre} />

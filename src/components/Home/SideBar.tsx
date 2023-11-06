@@ -3,9 +3,10 @@ import Spinner from "../Sidebar/Spinner";
 
 interface Props {
   handleClick: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const SideBar = ({ handleClick }: Props) => {
+const SideBar = ({ handleClick, selectedGenre }: Props) => {
   const { data, loading, error } = useGenres();
 
   if (loading) {
@@ -25,7 +26,13 @@ const SideBar = ({ handleClick }: Props) => {
         <ul className="space-y-2 font-medium cursor-pointer">
           {data.map((genre) => (
             <li key={genre.id} onClick={() => handleClick(genre)}>
-              <div className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <div
+                className={`flex ${
+                  genre.id === selectedGenre?.id
+                    ? "dark:bg-gray-800 bg-slate-200"
+                    : ""
+                } items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group`}
+              >
                 <img
                   src={genre.image_background}
                   className="h-12 w-12 rounded-sm"
