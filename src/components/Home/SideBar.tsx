@@ -19,7 +19,7 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
   return (
     <aside
       id="default-sidebar"
-      className=" transition-transform min-w-[200px] sm:translate-x-0"
+      className=" transition-transform min-w-[200px]  sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
@@ -31,14 +31,16 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
                   genre.id === selectedGenre?.id
                     ? "dark:bg-gray-800 bg-slate-200"
                     : ""
-                } items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group`}
+                } items-center  text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group`}
               >
                 <img
                   src={genre.image_background}
                   className="h-12 w-12 rounded-sm"
                   alt="genrelist"
                 />
-                <span className="ml-3 text-lg font-mono">{genre.name}</span>
+                <span className="ml-3 text-lg font-Montserrat">
+                  {genre.name}
+                </span>
               </div>
             </li>
           ))}

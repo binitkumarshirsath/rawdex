@@ -1,4 +1,5 @@
 import { Genre } from "../../hooks/useGenres";
+import PlatformSelector from "../GameGrid/PlatformSelector";
 import GameGrid from "./GameGrid";
 
 interface Props {
@@ -6,7 +7,12 @@ interface Props {
 }
 
 const Main = ({ selectedGenre }: Props) => {
-  return <GameGrid selectedGenre={selectedGenre} />;
+  return (
+    <>
+      <PlatformSelector />
+      <GameGrid selectedGenre={selectedGenre} />
+    </>
+  );
 };
 
 export default Main;
