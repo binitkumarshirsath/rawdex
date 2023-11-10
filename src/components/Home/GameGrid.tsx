@@ -1,16 +1,24 @@
-import useGames from "../../hooks/useGames";
+import useGames, { Platform } from "../../hooks/useGames";
 import { Genre } from "../../hooks/useGenres";
 import GameCard from "../GameGrid/GameCard";
 import GameCardSkeleton from "../GameGrid/GameCardSkeleton";
 
 interface Props {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-const GameGrid = ({ selectedGenre }: Props) => {
+const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
   const skeletonCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const { data, error, loading } = useGames(selectedGenre);
+  const { data, error, loading } = useGames(selectedGenre, selectedPlatform);
+  if (data.length === 0) {
+    return (
+      <div className="flex flex-1 font-Montserrat text-red-500 ml-10  h-60 items-center">
+        Selected filters doesnt have any Games present at the moment.
+      </div>
+    );
+  }
   return (
     <>
       {error && <p>{error}</p>}

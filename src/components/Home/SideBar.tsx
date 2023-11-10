@@ -19,7 +19,7 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
   return (
     <aside
       id="default-sidebar"
-      className=" transition-transform min-w-[200px]  sm:translate-x-0"
+      className=" transition-transform max-w-[180px]  sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
