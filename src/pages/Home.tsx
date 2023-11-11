@@ -8,6 +8,7 @@ import { Platform } from "../hooks/useGames";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 const Home = () => {
@@ -17,6 +18,9 @@ const Home = () => {
     setGameQuery((prevData) => ({ ...prevData, genre }));
   const handleSelectingPlatform = (platform: Platform) =>
     setGameQuery((prevData) => ({ ...prevData, platform }));
+  const handleSelectingSortOrder = (sortOrder: string) =>
+    setGameQuery((prevData) => ({ ...prevData, sortOrder }));
+
   return (
     <>
       <div className="grid grid-col-8">
@@ -31,8 +35,9 @@ const Home = () => {
         </div>
         <div className=" md:col-span-7  col-span-8">
           <Main
-            handleSelectingPlatform={handleSelectingPlatform}
             gameQuery={gameQuery}
+            handleSelectingPlatform={handleSelectingPlatform}
+            handleSelectingSortOrder={handleSelectingSortOrder}
           />
         </div>
       </div>
