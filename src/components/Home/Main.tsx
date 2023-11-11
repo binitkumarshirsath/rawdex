@@ -1,5 +1,6 @@
 import { Platform } from "../../hooks/useGames";
 import { GameQuery } from "../../pages/Home";
+import GameHeading from "../GameGrid/GameHeading";
 import PlatformSelector from "../GameGrid/PlatformSelector";
 import SortOrderSelector from "../GameGrid/SortOrderSelector";
 import GameGrid from "./GameGrid";
@@ -17,15 +18,20 @@ const Main = ({
 }: Props) => {
   return (
     <>
-      <PlatformSelector
-        gameQuery={gameQuery}
-        handleSelectingPlatform={handleSelectingPlatform}
-      />
-      <SortOrderSelector
-        sortOrder={gameQuery?.sortOrder}
-        handleSelectingSortOrder={handleSelectingSortOrder}
-      />
-      <GameGrid gameQuery={gameQuery} />
+      <div className="ml-10">
+        <div className=" flex gap-4">
+          <PlatformSelector
+            gameQuery={gameQuery}
+            handleSelectingPlatform={handleSelectingPlatform}
+          />
+          <SortOrderSelector
+            sortOrder={gameQuery?.sortOrder}
+            handleSelectingSortOrder={handleSelectingSortOrder}
+          />
+        </div>
+        <GameHeading gameQuery={gameQuery} />
+        <GameGrid gameQuery={gameQuery} />
+      </div>
     </>
   );
 };

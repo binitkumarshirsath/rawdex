@@ -35,7 +35,7 @@ const SortOrderSelector = ({ handleSelectingSortOrder, sortOrder }: Props) => {
 
   const currentSortOrder = sortOrders.find((sort) => sort.value === sortOrder);
   return (
-    <div className="dropdown  mb-1 ml-10  ">
+    <div className="dropdown  mb-1   ">
       <label
         tabIndex={0}
         className="dark:bg-gray-700 font-Montserrat font-thin tracking-wider px-4 py-2 bg-gray-500 text-white rounded-sm flex gap-2 items-center"

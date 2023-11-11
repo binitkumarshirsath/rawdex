@@ -2,12 +2,16 @@ import ToggleButton from "./ToggleButton";
 import logo from "../../assets/logo.png";
 import SearchInput from "../GameGrid/SearchInput";
 
-const Navbar = () => {
-  return (
-    <div className="flex  h-20  mx-auto md:gap-10 items-center ">
-      <img src={logo} alt="Logo" className="h-10 rounded-lg ml-10" />
+interface Props {
+  handleSearchQuery: (search: string) => void;
+}
 
-      <SearchInput />
+const Navbar = ({ handleSearchQuery }: Props) => {
+  return (
+    <div className="flex  h-20  mx-auto md:gap-10  gap-4 items-center ">
+      <img src={logo} alt="Logo" className="h-10 rounded-lg md:ml-10" />
+
+      <SearchInput handleSearchQuery={handleSearchQuery} />
 
       <div className="mr-10">
         <ToggleButton />

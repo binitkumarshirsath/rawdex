@@ -9,6 +9,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  search: string | null;
 }
 
 const Home = () => {
@@ -20,12 +21,13 @@ const Home = () => {
     setGameQuery((prevData) => ({ ...prevData, platform }));
   const handleSelectingSortOrder = (sortOrder: string) =>
     setGameQuery((prevData) => ({ ...prevData, sortOrder }));
-
+  const handleSearchQuery = (search: string) =>
+    setGameQuery((prevData) => ({ ...prevData, search }));
   return (
     <>
       <div className="grid grid-col-8">
         <div className="col-span-8">
-          <Navbar />
+          <Navbar handleSearchQuery={handleSearchQuery} />
         </div>
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
           <SideBar
