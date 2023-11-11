@@ -1,29 +1,21 @@
 import { Platform } from "../../hooks/useGames";
-import { Genre } from "../../hooks/useGenres";
+import { GameQuery } from "../../pages/Home";
 import PlatformSelector from "../GameGrid/PlatformSelector";
 import GameGrid from "./GameGrid";
 
 interface Props {
-  selectedGenre: Genre | null;
   handleSelectingPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery | null;
 }
 
-const Main = ({
-  selectedGenre,
-  handleSelectingPlatform,
-  selectedPlatform,
-}: Props) => {
+const Main = ({ gameQuery, handleSelectingPlatform }: Props) => {
   return (
     <>
       <PlatformSelector
-        selectedPlatform={selectedPlatform}
+        gameQuery={gameQuery}
         handleSelectingPlatform={handleSelectingPlatform}
       />
-      <GameGrid
-        selectedGenre={selectedGenre}
-        selectedPlatform={selectedPlatform}
-      />
+      <GameGrid gameQuery={gameQuery} />
     </>
   );
 };

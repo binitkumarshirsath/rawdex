@@ -1,16 +1,14 @@
 import { Platform } from "../../hooks/useGames";
 import usePlatForm from "../../hooks/usePlatForm";
 import { MdArrowDropDown } from "react-icons/md";
+import { GameQuery } from "../../pages/Home";
 
 interface Props {
   handleSelectingPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery | null;
 }
 
-const PlatformSelector = ({
-  handleSelectingPlatform,
-  selectedPlatform,
-}: Props) => {
+const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
   const { data, error } = usePlatForm();
   if (error) {
     return null;
@@ -22,7 +20,7 @@ const PlatformSelector = ({
         tabIndex={0}
         className="dark:bg-gray-700 font-Montserrat font-thin tracking-wider px-4 py-2 bg-gray-500 text-white rounded-sm flex gap-2 items-center"
       >
-        {selectedPlatform?.name || "Platforms"} <MdArrowDropDown />
+        {gameQuery?.platform?.name || "Platforms"} <MdArrowDropDown />
       </label>
       <ul
         tabIndex={0}

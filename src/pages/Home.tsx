@@ -5,14 +5,18 @@ import Navbar from "../components/Navbar";
 import { Genre } from "../hooks/useGenres";
 import { Platform } from "../hooks/useGames";
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 const Home = () => {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
-  const handleSelectingGenre = (genre: Genre) => setSelectedGenre(genre);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+
+  const handleSelectingGenre = (genre: Genre) =>
+    setGameQuery((prevData) => ({ ...prevData, genre }));
   const handleSelectingPlatform = (platform: Platform) =>
-    setSelectedPlatform(platform);
+    setGameQuery((prevData) => ({ ...prevData, platform }));
   return (
     <>
       <div className="grid grid-col-8">
@@ -21,15 +25,14 @@ const Home = () => {
         </div>
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
           <SideBar
-            selectedGenre={selectedGenre}
+            selectedGenre={gameQuery.genre}
             handleClick={handleSelectingGenre}
           />
         </div>
         <div className=" md:col-span-7  col-span-8">
           <Main
             handleSelectingPlatform={handleSelectingPlatform}
-            selectedGenre={selectedGenre}
-            selectedPlatform={selectedPlatform}
+            gameQuery={gameQuery}
           />
         </div>
       </div>
