@@ -24,7 +24,7 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
     >
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
         <ul className="space-y-2 font-medium cursor-pointer">
-          {data?.map((genre) => (
+          {data?.results.map((genre) => (
             <li key={genre.id} onClick={() => handleClick(genre)}>
               <div
                 className={`flex ${

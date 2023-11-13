@@ -17,12 +17,12 @@ const GameGrid = ({ gameQuery }: Props) => {
       {error && <p>{error.message}</p>}
       <div className="grid start-0  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
         {isLoading && skeletonCard.map((id) => <GameCardSkeleton key={id} />)}
-        {data?.length === 0 && (
+        {data?.results.length === 0 && (
           <div className=" h-full w-full  flex mt-6 text-red-500 font-Montserrat ">
             Selected Filter doesn't have any games present at the moment.
           </div>
         )}
-        {data?.map((game) => (
+        {data?.results.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </div>
