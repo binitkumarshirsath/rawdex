@@ -18,7 +18,7 @@ const Main = ({
 }: Props) => {
   return (
     <>
-      <div className="ml-10">
+      <div className="md:ml-10">
         <div className=" flex gap-4">
           <PlatformSelector
             gameQuery={gameQuery}

@@ -7,9 +7,9 @@ interface Props {
 }
 
 const SideBar = ({ handleClick, selectedGenre }: Props) => {
-  const { data, loading, error } = useGenres();
+  const { data, isLoading, error } = useGenres();
 
-  if (loading) {
+  if (isLoading) {
     return <Spinner />;
   }
 
@@ -24,7 +24,7 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
     >
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
         <ul className="space-y-2 font-medium cursor-pointer">
-          {data.map((genre) => (
+          {data?.map((genre) => (
             <li key={genre.id} onClick={() => handleClick(genre)}>
               <div
                 className={`flex ${

@@ -9,15 +9,14 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <div className="flex justify-center">
-      <div className="max-w-sm mx-2 sm:m-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mt-10 dark:border-gray-700">
-        <div>
-          <img
-            className="rounded-t-lg overflow-hidden "
-            src={getCroppedImage(game.background_image)}
-            alt=""
-          />
-        </div>
+    <div className="flex justify-center ">
+      <div className="max-w-sm mx-2 sm:m-10  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mt-10 dark:border-gray-700">
+        <img
+          className="rounded-t-lg overflow-hidden object-contain "
+          src={getCroppedImage(game.background_image)}
+          alt=""
+        />
+
         <div className="p-5">
           <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 font-serif dark:text-white">
             {game.name}
