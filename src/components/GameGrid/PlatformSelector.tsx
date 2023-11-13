@@ -13,7 +13,6 @@ const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
   if (error) {
     return null;
   }
-
   return (
     <div className="dropdown  dropdown-content mb-1 ">
       <label
@@ -26,7 +25,7 @@ const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
         tabIndex={0}
         className="dropdown-content font-Montserrat tracking-widest  dark:bg-gray-700 mt-2 rounded-sm text-white bg-gray-500 z-[1]   shadow"
       >
-        {data.map((platform) => (
+        {data?.map((platform) => (
           <li
             className="py-2 cursor-pointer first-letter px-2 dark:hover:bg-gray-500  rounded-sm"
             key={platform.id}
