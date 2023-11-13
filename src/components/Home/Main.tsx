@@ -1,4 +1,4 @@
-import { Platform } from "../../hooks/useGames";
+import { Platform } from "../../hooks/usePlatForm";
 import { GameQuery } from "../../pages/Home";
 import GameHeading from "../GameGrid/GameHeading";
 import PlatformSelector from "../GameGrid/PlatformSelector";

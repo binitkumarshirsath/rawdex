@@ -24,7 +24,7 @@ const SearchInput = ({ handleSearchQuery }: Props) => {
         />
         <div
           onClick={handleSubmit}
-          className="absolute text-black dark:text-white left-2 top-0 translate-y-3"
+          className="absolute text-black dark:text-black left-2 top-0 translate-y-3"
         >
           <BsSearch size={27} />
         </div>

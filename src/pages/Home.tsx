@@ -3,7 +3,7 @@ import Main from "../components/Home/Main";
 import SideBar from "../components/Home/SideBar";
 import Navbar from "../components/Navbar";
 import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/useGames";
+import { Platform } from "../hooks/usePlatForm";
 
 export interface GameQuery {
   genre: Genre | null;

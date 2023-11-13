@@ -1,6 +1,5 @@
-import { Platform } from "../../hooks/useGames";
-import usePlatForm from "../../hooks/usePlatForm";
 import { MdArrowDropDown } from "react-icons/md";
+import usePlatForm, { Platform } from "../../hooks/usePlatForm";
 import { GameQuery } from "../../pages/Home";
 
 interface Props {
