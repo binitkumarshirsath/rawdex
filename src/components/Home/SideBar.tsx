@@ -35,7 +35,7 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
               >
                 <img
                   src={genre.image_background}
-                  className="h-12 w-12 rounded-sm"
+                  className="h-12 w-12 rounded-2xl object-cover "
                   alt="genrelist"
                 />
                 <span className="ml-3 text-lg font-Montserrat">

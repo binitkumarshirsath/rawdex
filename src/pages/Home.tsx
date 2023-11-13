@@ -30,6 +30,7 @@ const Home = () => {
           <Navbar handleSearchQuery={handleSearchQuery} />
         </div>
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
+          <div className="font-Montserrat my-4 text-4xl">Genres</div>
           <SideBar
             selectedGenre={gameQuery.genre}
             handleClick={handleSelectingGenre}

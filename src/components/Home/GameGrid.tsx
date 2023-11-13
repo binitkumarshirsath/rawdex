@@ -15,7 +15,7 @@ const GameGrid = ({ gameQuery }: Props) => {
   return (
     <>
       {error && <p>{error}</p>}
-      <div className="grid  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
+      <div className="grid start-0  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
         {loading && skeletonCard.map((id) => <GameCardSkeleton key={id} />)}
         {data.length === 0 && (
           <div className=" h-full w-full  flex mt-6 text-red-500 font-Montserrat ">
