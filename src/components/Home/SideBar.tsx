@@ -1,9 +1,9 @@
-import useGenres, { Genre } from "../../hooks/useGenres";
+import useGenres from "../../hooks/useGenres";
 import Spinner from "../Sidebar/Spinner";
 
 interface Props {
-  handleClick: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  handleClick: (genreId: number | undefined) => void;
+  selectedGenre: number | undefined;
 }
 
 const SideBar = ({ handleClick, selectedGenre }: Props) => {
@@ -25,10 +25,10 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
         <ul className="space-y-2 font-medium cursor-pointer">
           {data?.results.map((genre) => (
-            <li key={genre.id} onClick={() => handleClick(genre)}>
+            <li key={genre.id} onClick={() => handleClick(genre.id)}>
               <div
                 className={`flex ${
-                  genre.id === selectedGenre?.id
+                  genre.id === selectedGenre
                     ? "dark:bg-gray-800 bg-slate-200"
                     : ""
                 } items-center  text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group`}

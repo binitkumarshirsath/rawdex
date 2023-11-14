@@ -2,12 +2,10 @@ import { useState } from "react";
 import Main from "../components/Home/Main";
 import SideBar from "../components/Home/SideBar";
 import Navbar from "../components/Navbar";
-import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/usePlatForm";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId: number | undefined;
+  platformId: number | undefined;
   sortOrder: string;
   search: string | null;
 }
@@ -15,10 +13,10 @@ export interface GameQuery {
 const Home = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
-  const handleSelectingGenre = (genre: Genre) =>
-    setGameQuery((prevData) => ({ ...prevData, genre }));
-  const handleSelectingPlatform = (platform: Platform) =>
-    setGameQuery((prevData) => ({ ...prevData, platform }));
+  const handleSelectingGenre = (genreId: number | undefined) =>
+    setGameQuery((prevData) => ({ ...prevData, genreId }));
+  const handleSelectingPlatform = (platformId: number | undefined) =>
+    setGameQuery((prevData) => ({ ...prevData, platformId }));
   const handleSelectingSortOrder = (sortOrder: string) =>
     setGameQuery((prevData) => ({ ...prevData, sortOrder }));
   const handleSearchQuery = (search: string) =>
@@ -32,7 +30,7 @@ const Home = () => {
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
           <div className="font-Montserrat my-4 text-4xl">Genres</div>
           <SideBar
-            selectedGenre={gameQuery.genre}
+            selectedGenre={gameQuery.genreId}
             handleClick={handleSelectingGenre}
           />
         </div>

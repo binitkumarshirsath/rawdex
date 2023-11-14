@@ -1,14 +1,15 @@
 import { MdArrowDropDown } from "react-icons/md";
-import usePlatForm, { Platform } from "../../hooks/usePlatForm";
+import usePlatForm from "../../hooks/usePlatForm";
 import { GameQuery } from "../../pages/Home";
 
 interface Props {
-  handleSelectingPlatform: (platform: Platform) => void;
+  handleSelectingPlatform: (platformId: number | undefined) => void;
   gameQuery: GameQuery | null;
 }
 
 const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
   const { data, error } = usePlatForm();
+  const platform = data?.results.find((p) => p.id === gameQuery?.platformId);
   if (error) {
     return null;
   }
@@ -18,7 +19,7 @@ const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
         tabIndex={0}
         className="dark:bg-gray-700 font-Montserrat font-thin tracking-wider px-4 py-2 bg-gray-500 text-white rounded-sm flex gap-2 items-center"
       >
-        {gameQuery?.platform?.name || "Platforms"} <MdArrowDropDown />
+        {platform?.name || "Platforms"} <MdArrowDropDown />
       </label>
       <ul
         tabIndex={0}
@@ -28,7 +29,7 @@ const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
           <li
             className="py-2 cursor-pointer first-letter px-2 dark:hover:bg-gray-500  rounded-sm"
             key={platform.id}
-            onClick={() => handleSelectingPlatform(platform)}
+            onClick={() => handleSelectingPlatform(platform.id)}
           >
             {platform.name}
           </li>

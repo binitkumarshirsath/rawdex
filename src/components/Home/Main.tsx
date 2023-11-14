@@ -1,4 +1,3 @@
-import { Platform } from "../../hooks/usePlatForm";
 import { GameQuery } from "../../pages/Home";
 import GameHeading from "../GameGrid/GameHeading";
 import PlatformSelector from "../GameGrid/PlatformSelector";
@@ -6,7 +5,7 @@ import SortOrderSelector from "../GameGrid/SortOrderSelector";
 import GameGrid from "./GameGrid";
 
 interface Props {
-  handleSelectingPlatform: (platform: Platform) => void;
+  handleSelectingPlatform: (platformId: number | undefined) => void;
   handleSelectingSortOrder: (sortOrder: string) => void;
   gameQuery: GameQuery | null;
 }
