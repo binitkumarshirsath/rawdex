@@ -1,6 +1,7 @@
 import React from "react";
-import useGames from "../../hooks/useGames";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { GameQuery } from "../../pages/Home";
+import useGames from "../../hooks/useGames";
 import GameCard from "../GameGrid/GameCard";
 import GameCardSkeleton from "../GameGrid/GameCardSkeleton";
 
@@ -10,41 +11,44 @@ interface Props {
 
 const GameGrid = ({ gameQuery }: Props) => {
   const skeletonCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const { data, error, isLoading, fetchNextPage, isFetchingNextPage } =
-    useGames(gameQuery);
+  const {
+    data,
+    error,
+    isLoading,
+    fetchNextPage,
+
+    hasNextPage,
+  } = useGames(gameQuery);
+
+  const gamesFetchedSoFar =
+    data?.pages.reduce((total, page) => (total += page.results.length), 0) || 0;
 
   return (
     <>
       {error && <p>{error.message}</p>}
-      <div className="grid start-0  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
-        {isLoading && skeletonCard.map((id) => <GameCardSkeleton key={id} />)}
-        {data?.pages.map((page, index) => (
-          <React.Fragment key={index}>
-            {page.results.map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          </React.Fragment>
-        ))}
-      </div>
-      <div className="flex  justify-center my-5">
-        <button
-          className="bg-gray-500 py-2 px-7 rounded-lg  font-Montserrat "
-          onClick={() => fetchNextPage()}
-        >
-          {isFetchingNextPage ? "Loading...." : "Load more"}
-        </button>
-      </div>
+      <InfiniteScroll
+        dataLength={gamesFetchedSoFar}
+        hasMore={hasNextPage}
+        next={fetchNextPage}
+        loader={
+          <div className="w-full mx-auto flex justify-center ">
+            <span className="loading   loading-spinner loading-lg"></span>
+          </div>
+        }
+      >
+        <div className="grid start-0  grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
+          {isLoading && skeletonCard.map((id) => <GameCardSkeleton key={id} />)}
+          {data?.pages.map((page, index) => (
+            <React.Fragment key={index}>
+              {page.results.map((game) => (
+                <GameCard key={game.id} game={game} />
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
+      </InfiniteScroll>
     </>
   );
 };
 
 export default GameGrid;
-
-// {data?.results.length === 0 && (
-//   <div className=" h-full w-full  flex mt-6 text-red-500 font-Montserrat ">
-//     Selected Filter doesn't have any games present at the moment.
-//   </div>
-// )}
-// {data?.results.map((game) => (
-//   <GameCard key={game.id} game={game} />
-// ))}
