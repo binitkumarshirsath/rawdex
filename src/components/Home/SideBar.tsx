@@ -1,12 +1,10 @@
 import useGenres from "../../hooks/useGenres";
+import useGameQuery from "../../store/GameQuery";
 import Spinner from "../Sidebar/Spinner";
 
-interface Props {
-  handleClick: (genreId: number) => void;
-  selectedGenre: number | undefined;
-}
+const SideBar = () => {
+  const { gameQuery, setGenreQuery } = useGameQuery();
 
-const SideBar = ({ handleClick, selectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (isLoading) {
@@ -25,10 +23,10 @@ const SideBar = ({ handleClick, selectedGenre }: Props) => {
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
         <ul className="space-y-2 font-medium cursor-pointer">
           {data?.results.map((genre) => (
-            <li key={genre.id} onClick={() => handleClick(genre.id)}>
+            <li key={genre.id} onClick={() => setGenreQuery(genre.id)}>
               <div
                 className={`flex ${
-                  genre.id === selectedGenre
+                  genre.id === gameQuery.genreId
                     ? "dark:bg-gray-800 bg-slate-200"
                     : ""
                 } items-center  text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group`}

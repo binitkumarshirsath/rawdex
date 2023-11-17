@@ -4,8 +4,7 @@ import Navbar from "../components/Navbar";
 import useGameQuery from "../store/GameQuery";
 
 const Home = () => {
-  const { gameQuery, setGenreQuery, setPlatformQuery, setSortOrderQuery } =
-    useGameQuery();
+  const { gameQuery, setPlatformQuery, setSortOrderQuery } = useGameQuery();
 
   return (
     <>
@@ -15,10 +14,7 @@ const Home = () => {
         </div>
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
           <div className="font-Montserrat my-4 text-4xl">Genres</div>
-          <SideBar
-            selectedGenre={gameQuery.genreId}
-            handleClick={setGenreQuery}
-          />
+          <SideBar />
         </div>
         <div className=" md:col-span-7  col-span-8">
           <Main
