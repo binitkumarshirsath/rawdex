@@ -1,35 +1,18 @@
-import { GameQuery } from "../../store/GameQuery";
 import GameHeading from "../GameGrid/GameHeading";
 import PlatformSelector from "../GameGrid/PlatformSelector";
 import SortOrderSelector from "../GameGrid/SortOrderSelector";
 import GameGrid from "./GameGrid";
 
-interface Props {
-  handleSelectingPlatform: (platformId: number) => void;
-  handleSelectingSortOrder: (sortOrder: string) => void;
-  gameQuery: GameQuery | null;
-}
-
-const Main = ({
-  gameQuery,
-  handleSelectingPlatform,
-  handleSelectingSortOrder,
-}: Props) => {
+const Main = () => {
   return (
     <>
       <div className="md:ml-10">
         <div className=" flex gap-4">
-          <PlatformSelector
-            gameQuery={gameQuery}
-            handleSelectingPlatform={handleSelectingPlatform}
-          />
-          <SortOrderSelector
-            sortOrder={gameQuery?.sortOrder}
-            handleSelectingSortOrder={handleSelectingSortOrder}
-          />
+          <PlatformSelector />
+          <SortOrderSelector />
         </div>
-        <GameHeading gameQuery={gameQuery} />
-        <GameGrid gameQuery={gameQuery} />
+        <GameHeading />
+        <GameGrid />
       </div>
     </>
   );

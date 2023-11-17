@@ -1,14 +1,12 @@
 import { MdArrowDropDown } from "react-icons/md";
 import usePlatForm from "../../hooks/usePlatForm";
-import { GameQuery } from "../../store/GameQuery";
+import useGameQuery from "../../store/GameQuery";
 
-interface Props {
-  handleSelectingPlatform: (platformId: number) => void;
-  gameQuery: GameQuery | null;
-}
+const PlatformSelector = () => {
+  const { gameQuery, setPlatformQuery } = useGameQuery();
 
-const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
   const { data, error } = usePlatForm();
+
   const platform = data?.results.find((p) => p.id === gameQuery?.platformId);
   if (error) {
     return null;
@@ -29,7 +27,7 @@ const PlatformSelector = ({ handleSelectingPlatform, gameQuery }: Props) => {
           <li
             className="py-2 cursor-pointer first-letter px-2 dark:hover:bg-gray-500  rounded-sm"
             key={platform.id}
-            onClick={() => handleSelectingPlatform(platform.id)}
+            onClick={() => setPlatformQuery(platform.id)}
           >
             {platform.name}
           </li>

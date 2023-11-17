@@ -1,11 +1,8 @@
 import Main from "../components/Home/Main";
 import SideBar from "../components/Home/SideBar";
 import Navbar from "../components/Navbar";
-import useGameQuery from "../store/GameQuery";
 
 const Home = () => {
-  const { gameQuery, setPlatformQuery, setSortOrderQuery } = useGameQuery();
-
   return (
     <>
       <div className="grid grid-col-8">
@@ -17,11 +14,7 @@ const Home = () => {
           <SideBar />
         </div>
         <div className=" md:col-span-7  col-span-8">
-          <Main
-            gameQuery={gameQuery}
-            handleSelectingPlatform={setPlatformQuery}
-            handleSelectingSortOrder={setSortOrderQuery}
-          />
+          <Main />
         </div>
       </div>
     </>

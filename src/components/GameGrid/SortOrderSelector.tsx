@@ -1,11 +1,9 @@
 import { MdArrowDropDown } from "react-icons/md";
+import useGameQuery from "../../store/GameQuery";
 
-interface Props {
-  handleSelectingSortOrder: (sortOrder: string) => void;
-  sortOrder: string | undefined;
-}
+const SortOrderSelector = () => {
+  const { setSortOrderQuery, gameQuery } = useGameQuery();
 
-const SortOrderSelector = ({ handleSelectingSortOrder, sortOrder }: Props) => {
   const sortOrders = [
     {
       value: "",
@@ -33,7 +31,9 @@ const SortOrderSelector = ({ handleSelectingSortOrder, sortOrder }: Props) => {
     },
   ];
 
-  const currentSortOrder = sortOrders.find((sort) => sort.value === sortOrder);
+  const currentSortOrder = sortOrders.find(
+    (sort) => sort.value === gameQuery.sortOrder
+  );
   return (
     <div className="dropdown  mb-1   ">
       <label
@@ -50,7 +50,7 @@ const SortOrderSelector = ({ handleSelectingSortOrder, sortOrder }: Props) => {
           <li
             className="py-2 cursor-pointer first-letter px-2 dark:hover:bg-gray-500  rounded-sm"
             key={order.value}
-            onClick={() => handleSelectingSortOrder(order.value)}
+            onClick={() => setSortOrderQuery(order.value)}
           >
             {order.label}
           </li>

@@ -1,12 +1,10 @@
 import useGenres from "../../hooks/useGenres";
 import usePlatForm from "../../hooks/usePlatForm";
-import { GameQuery } from "../../pages/Home";
+import useGameQuery from "../../store/GameQuery";
 
-interface Props {
-  gameQuery: GameQuery | null;
-}
+const GameHeading = () => {
+  const gameQuery = useGameQuery((s) => s.gameQuery);
 
-const GameHeading = ({ gameQuery }: Props) => {
   const { data: genres } = useGenres();
   const genre = genres?.results.find((g) => g.id === gameQuery?.genreId);
 
