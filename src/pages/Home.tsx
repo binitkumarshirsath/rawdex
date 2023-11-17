@@ -4,19 +4,14 @@ import Navbar from "../components/Navbar";
 import useGameQuery from "../store/GameQuery";
 
 const Home = () => {
-  const {
-    gameQuery,
-    setGenreQuery,
-    setPlatformQuery,
-    setSearchQuery,
-    setSortOrderQuery,
-  } = useGameQuery();
+  const { gameQuery, setGenreQuery, setPlatformQuery, setSortOrderQuery } =
+    useGameQuery();
 
   return (
     <>
       <div className="grid grid-col-8">
         <div className="col-span-8">
-          <Navbar handleSearchQuery={setSearchQuery} />
+          <Navbar />
         </div>
         <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
           <div className="font-Montserrat my-4 text-4xl">Genres</div>

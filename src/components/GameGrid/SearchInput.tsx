@@ -1,15 +1,15 @@
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
+import useGameQuery from "../../store/GameQuery";
 
-interface Props {
-  handleSearchQuery: (search: string) => void;
-}
-const SearchInput = ({ handleSearchQuery }: Props) => {
+const SearchInput = () => {
+  const setSearchQuery = useGameQuery((s) => s.setSearchQuery);
+
   const ref = useRef<HTMLInputElement>(null);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (ref.current) {
-      handleSearchQuery(ref.current.value);
+      setSearchQuery(ref.current.value);
     }
   };
 
