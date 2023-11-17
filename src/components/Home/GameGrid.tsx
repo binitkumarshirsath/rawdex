@@ -11,14 +11,8 @@ interface Props {
 
 const GameGrid = ({ gameQuery }: Props) => {
   const skeletonCard = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const {
-    data,
-    error,
-    isLoading,
-    fetchNextPage,
-
-    hasNextPage,
-  } = useGames(gameQuery);
+  const { data, error, isLoading, fetchNextPage, hasNextPage } =
+    useGames(gameQuery);
 
   const gamesFetchedSoFar =
     data?.pages.reduce((total, page) => (total += page.results.length), 0) || 0;

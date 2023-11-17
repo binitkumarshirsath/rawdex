@@ -1,9 +1,9 @@
 import { MdArrowDropDown } from "react-icons/md";
 import usePlatForm from "../../hooks/usePlatForm";
-import { GameQuery } from "../../pages/Home";
+import { GameQuery } from "../../store/GameQuery";
 
 interface Props {
-  handleSelectingPlatform: (platformId: number | undefined) => void;
+  handleSelectingPlatform: (platformId: number) => void;
   gameQuery: GameQuery | null;
 }
 

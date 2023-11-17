@@ -2,7 +2,7 @@ import useGenres from "../../hooks/useGenres";
 import Spinner from "../Sidebar/Spinner";
 
 interface Props {
-  handleClick: (genreId: number | undefined) => void;
+  handleClick: (genreId: number) => void;
   selectedGenre: number | undefined;
 }
 
