@@ -15,3 +15,8 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
+.dark {
+  background-color: #151515;
+  color: white;
+}
