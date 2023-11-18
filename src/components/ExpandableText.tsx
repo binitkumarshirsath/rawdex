@@ -16,7 +16,7 @@ const ExpandableText = ({ children }: Props) => {
     <div>
       {summary}
       <button
-        className="bg-yellow-400 border-2 ml-4 border-yellow-300 px-3 font-mont font-semibold rounded-lg py-1 text-gray-700"
+        className="dark:bg-yellow-400 border-2 ml-4 bg-blue-400 border-blue-300 dark:border-yellow-300 px-3 font-mont font-semibold rounded-lg py-1 text-gray-900"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         {isExpanded ? " Read less" : " Read more"}
