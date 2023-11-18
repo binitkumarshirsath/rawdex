@@ -9,10 +9,10 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <div className="flex justify-center ">
-      <div className="max-w-sm mx-2 sm:m-10  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mt-10 dark:border-gray-700">
+    <div className="flex justify-center  ">
+      <div className="max-w-sm hover:scale-110 duration-500 transition cursor-pointer mx-2 sm:m-10  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 mt-10 dark:border-gray-700">
         <img
-          className="rounded-t-lg overflow-hidden object-contain "
+          className="rounded-t-lg mx-auto max-h-48  "
           src={getCroppedImage(game.background_image)}
           alt=""
         />
