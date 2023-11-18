@@ -4,12 +4,15 @@ import Spinner from "../components/Sidebar/Spinner";
 import ExpandableText from "../components/ExpandableText";
 import GameAttributes from "../components/GameAttributes";
 import CriticScoreBadge from "../components/GameGrid/CriticScoreBadge";
+import GameTrailer from "../components/GameTrailer";
+import GameScreenshot from "../components/GameScreenshot";
 
 const GameDetails = () => {
   const { slug } = useParams();
 
   // by appending the slug with ! , we tell ts , that slug will never be undefined
   const { data: game, isLoading, isError, error } = useGame(slug!);
+
   if (isLoading) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
@@ -23,7 +26,7 @@ const GameDetails = () => {
   }
 
   return (
-    <div className="p-5">
+    <div className="p-5 w-full mx-auto col-span-7 gap-2">
       <h1>{game.name}</h1>
       <ExpandableText>{game.description_raw}</ExpandableText>
       {/* platforms */}
@@ -51,6 +54,8 @@ const GameDetails = () => {
           ))}
         </GameAttributes>
       </div>
+      <GameTrailer gameId={slug!} />
+      <GameScreenshot gameId={slug!} />
     </div>
   );
 };
