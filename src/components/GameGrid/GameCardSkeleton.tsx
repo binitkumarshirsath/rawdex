@@ -4,9 +4,9 @@ const GameCardSkeleton = () => {
       role="status"
       className=" mx-auto w-11/12 my-6 sm:m-10 bg-white border animate-pulse p-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
     >
-      <div className="flex items-center justify-center h-52 w-full mb-4 bg-gray-300 rounded dark:bg-gray-700">
+      <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
         <svg
-          className="w-10 h-32 text-gray-200 dark:text-gray-600"
+          className="w-10 h-48 max-h-48 text-gray-200 dark:text-gray-600"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
