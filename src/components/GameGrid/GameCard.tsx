@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Game } from "../../hooks/useGames";
+import { Game } from "../../entities/Game";
 import getCroppedImage from "../../services/image-url";
 import CriticScoreBadge from "./CriticScoreBadge";
 import PlatformIconList from "./PlatformIconList";
