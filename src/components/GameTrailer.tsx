@@ -1,4 +1,5 @@
 import useGameTrailer from "../hooks/useGameTrailer";
+
 import Spinner from "./Sidebar/Spinner";
 
 interface Props {
@@ -20,7 +21,19 @@ const GameTrailer = ({ gameId }: Props) => {
     return null;
   }
 
-  return <video controls poster={first.preview} src={first.data.max}></video>;
+  return (
+    <>
+      <div className="font-Montserrat my-3.5 dark:text-gray-400 font-semibold text-3xl">
+        Game Trailer
+      </div>
+      <video
+        className="my-2"
+        controls
+        poster={first.preview}
+        src={first.data.max}
+      ></video>
+    </>
+  );
 };
 
 export default GameTrailer;
