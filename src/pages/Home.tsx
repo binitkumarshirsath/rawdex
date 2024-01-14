@@ -1,5 +1,6 @@
 import Main from "../components/Home/Main";
 import SideBar from "../components/Home/SideBar";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <div className=" md:col-span-7  col-span-8">
         <Main />
       </div>
+      <ScrollToTop />
     </>
   );
 };
