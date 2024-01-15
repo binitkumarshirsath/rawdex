@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex  h-20  mx-auto md:gap-10  gap-4 items-center ">
+    <div className="flex h-20  mx-auto md:gap-10  gap-4 items-center ">
       <Link to={"/"}>
         <img
           src={logo}

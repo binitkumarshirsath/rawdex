@@ -17,7 +17,7 @@ const SideBar = () => {
   return (
     <aside
       id="default-sidebar"
-      className=" transition-transform max-w-[180px] dark:text-white sm:translate-x-0"
+      className=" transition-transform max-w-[180px] dark:text-white text-black sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
