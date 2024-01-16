@@ -1,16 +1,19 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import useGameQuery from "../../store/GameQuery";
 import { useNavigate } from "react-router-dom";
+import useDebounce from "../../hooks/useDebounce";
 
 const SearchInput = () => {
   const setSearchQuery = useGameQuery((s) => s.setSearchQuery);
   const navigate = useNavigate();
+  const [input, setInput] = useState("");
+  const debouncedInput = useDebounce(input);
   const ref = useRef<HTMLInputElement>(null);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (ref.current) {
-      setSearchQuery(ref.current.value);
+      setSearchQuery(debouncedInput);
       navigate("/");
     }
   };
@@ -21,6 +24,12 @@ const SearchInput = () => {
         <input
           ref={ref}
           type="text"
+          onChange={(e) => {
+            setInput(e.target.value);
+            setSearchQuery(debouncedInput);
+            navigate("/");
+          }}
+          value={input}
           placeholder="Search Games...."
           className="input input-bordered  pl-10 text-black font-Montserrat tracking-wider w-full min-w-[100px]"
         />
