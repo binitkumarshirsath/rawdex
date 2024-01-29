@@ -18,6 +18,11 @@ body {
   overflow-x: hidden;
 }
 
+.dark {
+  background-color: #151515;
+  color: white;
+}
+
 .top-to-btm {
   position: relative;
 }
