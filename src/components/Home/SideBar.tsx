@@ -36,7 +36,7 @@ const SideBar = () => {
                   className="h-12 w-12 rounded-2xl object-cover "
                   alt="genrelist"
                 />
-                <span className="ml-3 text-lg font-Montserrat text-white">
+                <span className="ml-3 text-lg font-Montserrat text-black">
                   {genre.name}
                 </span>
               </div>

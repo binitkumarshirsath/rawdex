@@ -28,7 +28,7 @@ const SearchInput = () => {
           }}
           value={input}
           placeholder="Search Games...."
-          className="input input-bordered dark:text-white text-white  pl-10 text-black font-Montserrat tracking-wider w-full min-w-[100px]"
+          className="input input-bordered dark:text-white   pl-10 text-black font-Montserrat tracking-wider w-full min-w-[100px]"
         />
         <div
           onClick={handleSubmit}
