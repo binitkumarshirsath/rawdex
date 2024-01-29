@@ -17,7 +17,7 @@ const SideBar = () => {
   return (
     <aside
       id="default-sidebar"
-      className=" transition-transform max-w-[180px] dark:text-white text-black sm:translate-x-0"
+      className=" transition-transform max-w-[180px]  sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div className="h-full  py-4 overflow-y-auto rounded-lg  ">
@@ -36,7 +36,7 @@ const SideBar = () => {
                   className="h-12 w-12 rounded-2xl object-cover "
                   alt="genrelist"
                 />
-                <span className="ml-3 text-lg font-Montserrat text-black">
+                <span className="ml-3 text-lg font-Montserrat">
                   {genre.name}
                 </span>
               </div>
