@@ -5,7 +5,7 @@ import ScrollToTop from "../components/ScrollToTop";
 const Home = () => {
   return (
     <>
-      <div className=" col-span-1 hidden md:block md:mt-10 ml-2">
+      <div className="col-span-1  hidden md:block md:mt-10 ml-2">
         <div className="font-Montserrat my-4 text-4xl">Genres</div>
         <SideBar />
       </div>
